@@ -3,6 +3,7 @@
 # Edit at https://www.gitignore.io/?templates=node
 
 ### Node ###
+package-lock.json
 # Logs
 logs
 *.log

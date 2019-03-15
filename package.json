@@ -1,0 +1,19 @@
+{
+  "name": "drone-wxapp-upload",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shynome/drone-wxapp-upload.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shynome/drone-wxapp-upload/issues"
+  },
+  "homepage": "https://github.com/shynome/drone-wxapp-upload#readme",
+  "dependencies": {
+    "@types/node": "^11.11.3"
+  }
+}

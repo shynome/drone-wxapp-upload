@@ -1,0 +1,4 @@
+#!/wxdt/bin/node
+
+require('../wxapp-ci/upload')
+

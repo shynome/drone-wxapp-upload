@@ -1,4 +1,0 @@
-#!/wxdt/bin/node
-
-require('./upload')
-
