@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "allowJs": true,
+    "strict": true,
+    "target": "esnext",
+    "module": "commonjs",
+    "strictNullChecks": false,
+    "noImplicitAny": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [ "../lib/*" ],
+      "@test/*": [ "../test/*" ]
+    },
+    "lib": [
+      "esnext","scripthost"
+    ],
+    "types": [
+      "node"
+    ]
+  }
+}

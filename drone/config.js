@@ -1,0 +1,1 @@
+exports.idePortFilepath = '/root/.config/wechat_web_devtools/Default/.ide'
