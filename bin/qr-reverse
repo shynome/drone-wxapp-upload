@@ -1,0 +1,30 @@
+#!/wxdt/bin/node
+
+// 微信命令行输出的二维码需要颜色反转才能在白色底上扫描
+
+const black = "\033[40m  \033[0m"
+const white = "\033[47m  \033[0m"
+
+/**@type {()=>Promise<Buffer>} */
+const readAllStdin = ()=>new Promise((rl,rj)=>{
+  let buf = Buffer.from([])
+  process.stdin.on('error',rj)
+  process.stdin.on('readable',()=>{
+    let chunk = /**@type {Buffer} */(null)
+    // Use a loop to make sure we read all available data.
+    while ((chunk = /**@type {Buffer} */(process.stdin.read())) !== null) {
+      buf = Buffer.concat([buf,chunk])
+    }
+  })
+  process.stdin.on('end',()=>rl(buf))  
+})
+
+async function main(){
+  let buf = await readAllStdin()
+  let qr = buf.toString()
+  let buf2 = qr.replace(new RegExp('40','g'),'90').replace(new RegExp('47','g'),'97')
+  buf2 = buf2.replace(new RegExp('90','g'),'47').replace(new RegExp('97','g'),'40')
+  process.stdout.write(buf2)
+}
+
+main()
