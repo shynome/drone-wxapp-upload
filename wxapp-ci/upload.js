@@ -65,7 +65,7 @@ async function waitLogin() {
   ]);
   console.log('\n')
   
-  shExec(`curl 127.0.0.1:${port}/login?format=terminal | /wxdt/bin/qr-reverse && echo '\n登录二维码输出完毕'`)
+  shExec(`curl 127.0.0.1:${port}/login?format=terminal | /wxapp-ci/bin/qr-reverse && echo '\n登录二维码输出完毕'`)
   hasRequestedLogin = 1
   await waitLogined()
   
