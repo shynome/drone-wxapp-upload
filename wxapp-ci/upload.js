@@ -15,9 +15,9 @@ try{
 }
 let desc = version
 
-const shExec = (cmd='')=>exec('sh',['-c',cmd])
+const shExec = (cmd='',options={})=>exec('sh',['-c',cmd],options)
 
-const uploadCmd = (flag='0')=>shExec(`flag=${flag} /wxdt/bin/cli --upload ${version}@$(pwd) --upload-desc '${desc}'`)
+const uploadCmd = (flag='0')=>shExec(`flag=${flag} /wxdt/bin/cli --upload ${version}@$(pwd) --upload-desc '${desc}'`,{ slient: false })
 
 const formatTime = (time='')=>new Date(Number(time)*1000).toLocaleString('chinese',{ timeZone:'Asia/Shanghai' })
 
@@ -62,7 +62,9 @@ async function waitLogin() {
     '-H', `Content-Type:application/json; charset=UTF-8`,
     '-d', JSON.stringify(report),
     env.get('report_hook'),
-  ]);
+  ],{
+    hidden: [7],
+  });
   console.log('\n')
   
   shExec(`curl 127.0.0.1:${port}/login?format=terminal | /wxapp-ci/bin/qr-reverse && echo '\n登录二维码输出完毕'`)
