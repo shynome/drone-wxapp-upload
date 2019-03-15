@@ -1,4 +1,4 @@
 #!/wxdt/bin/node
 
-require('./wxapp/upload')
+require('./upload')
 
