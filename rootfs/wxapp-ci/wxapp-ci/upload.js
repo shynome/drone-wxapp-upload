@@ -13,7 +13,7 @@ try{
   version = require(path.join(process.cwd(),'package.json')).version
 }catch(err){
 }
-let desc = version
+let desc = drone.commit_message || version 
 
 const shExec = (cmd='',options={})=>exec('sh',['-c',cmd],options)
 
