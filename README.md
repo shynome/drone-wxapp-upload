@@ -5,7 +5,6 @@ docker run --rm \
   -v save_your_wechat_login_info_volume:/root/.config/wechat_web_devtools/Default/ \
   -v /root/your_weapp_dir:/root/weapp \
   --workdir /root/weapp \
-  -e REPORT_HOOK='your_dingtalk_bot_token_url' \
   shynome/drone-wxapp-upload
 ```
 
