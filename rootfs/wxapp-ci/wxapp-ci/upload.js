@@ -57,7 +57,7 @@ async function waitLogin() {
     }
   }
 
-  let report_hook = env.iget('report_hook')
+  let report_hook = process.env['CI'] === 'drone' ? env.get('report_hook') : env.iget('report_hook')
   if(report_hook){
     await exec("curl", [
       '-X', 'POST',
