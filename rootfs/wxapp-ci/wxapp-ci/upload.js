@@ -57,15 +57,18 @@ async function waitLogin() {
     }
   }
 
-  await exec("curl", [
-    '-X', 'POST',
-    '-H', `Content-Type:application/json; charset=UTF-8`,
-    '-d', JSON.stringify(report),
-    env.get('report_hook'),
-  ],{
-    hidden: [7],
-  });
-  console.log('\n')
+  let report_hook = env.iget('report_hook')
+  if(report_hook){
+    await exec("curl", [
+      '-X', 'POST',
+      '-H', `Content-Type:application/json; charset=UTF-8`,
+      '-d', JSON.stringify(report),
+      report_hook,
+    ],{
+      hidden: [7],
+    });
+    console.log('\n')
+  }
   
   shExec(`curl 127.0.0.1:${port}/login?format=terminal | /wxapp-ci/bin/qr-reverse && echo '\n登录二维码输出完毕'`)
   hasRequestedLogin = 1
