@@ -52,7 +52,7 @@ async function waitLogin() {
     msgtype: 'link',
     link: {
       'title': `${drone.repo_name} ${drone.build_number} 微信小程序上传需要登录`,
-      'text': `微信开发工具登录已过期, 需要重新扫码登录. 打开链接地址进行扫码. \n发送时间: ${formatTime(Date.now().toString())}`,
+      'text': `微信开发工具登录已过期, 需要重新扫码登录. 打开链接地址进行扫码. \n发送时间: ${new Date().toLocaleString('chinese',{ timeZone:'Asia/Shanghai' })}`,
       'messageUrl': drone.build_link+'/'+drone.build_number,
     }
   }
