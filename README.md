@@ -1,7 +1,7 @@
 ### 使用方法
 
 ```sh
-docker run --rm \
+docker run --rm -ti \
   -v save_your_wechat_login_info_volume:/root/.config/wechat_web_devtools/Default/ \
   -v /root/your_weapp_dir:/root/weapp \
   --workdir /root/weapp \
